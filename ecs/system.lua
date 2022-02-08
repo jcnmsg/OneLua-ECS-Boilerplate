@@ -9,13 +9,15 @@ return {
         }
 
         function system:match(entity)
+            local match = true
+            
             for i = 1, #self.requires do
                 if entity:get(self.requires[i]) == nil then
-                    return false
-                else
-                    return true
+                    match = false
                 end
             end
+
+            return match
         end
 
         function system:load(entity) end
